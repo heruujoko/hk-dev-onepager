@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Usulan pendanaan pilot asisten laporan untuk pemilik Henskristal.">
+<title>Usulan Asisten Henskristal</title>
+<style>
+/* Funding decision sheet with bold monochrome type and a playful assistant ensemble. */
+:root {
+  --paper:#f5f5f5; --surface:#ffffff; --ink:#080808; --muted:#606060; --accent:#080808; --highlight:#ececec;
+  --violet:#9255ff; --teal:#00bba8; --orange:#ff8700; --pink:#f52da2; --blue:#1c81fa;
+  --display:Arial,Helvetica,sans-serif; --body:Arial,Helvetica,sans-serif;
+  color-scheme:light; font-family:var(--body); background:var(--paper); color:var(--ink);
+  padding-block:env(safe-area-inset-top,0px) env(safe-area-inset-bottom,0px);
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); line-height:1.5; padding-block:24px; padding-left:max(16px,env(safe-area-inset-left,0px)); padding-right:max(16px,env(safe-area-inset-right,0px)); }
+h1,h2,h3,p { margin:0; } h1,h2,h3 { text-wrap:balance; }
+.sheet { max-width:1200px; margin:auto; background:var(--surface); padding:28px 38px 22px; border:1px solid color-mix(in srgb,var(--ink) 15%,transparent); }
+header { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px; padding-bottom:17px; border-bottom:1px solid color-mix(in srgb,var(--ink) 18%,transparent); }
+.project { font-size:14px; font-weight:700; display:flex; align-items:center; gap:10px; }
+.project::before { content:''; width:25px; height:25px; border-radius:50%; background:var(--ink); }
+.label { font-size:10px; letter-spacing:1.1px; text-transform:uppercase; color:var(--muted); }
+.title { display:grid; grid-template-columns:1.6fr 1fr; gap:32px; align-items:end; padding-block:23px; }
+h1 { font:750 39px/1.08 var(--display); letter-spacing:-1.8px; } h1 em { color:var(--accent); font-style:normal; }
+.title-summary { display:flex; align-items:center; gap:14px; }
+.title p { font-size:12px; color:var(--muted); }
+.bots { position:relative; flex:0 0 120px; height:100px; }
+.bot { position:absolute; display:block; width:46px; height:48px; border-radius:43% 53% 39% 48%; background:var(--violet); transform:rotate(-14deg); animation:hello 1.2s ease-out; }
+.bot::before,.bot::after { content:''; position:absolute; width:5px; height:12px; top:17px; background:var(--surface); border-radius:8px; }
+.bot::before { left:15px; } .bot::after { left:26px; }
+.bot.a { left:35px; top:0; }
+.bot.b { left:0; top:43px; background:var(--orange); transform:rotate(-21deg); }
+.bot.c { left:73px; top:37px; background:var(--blue); transform:rotate(10deg); border-radius:15px; }
+.bot.d { left:35px; top:44px; background:var(--teal); transform:rotate(6deg); border-radius:21px 26px 15px 22px; }
+.bot.e { left:68px; top:73px; background:var(--pink); width:28px; height:27px; transform:rotate(12deg); }
+.bot.e::before,.bot.e::after { top:9px; height:7px; width:4px; } .bot.e::before { left:8px; } .bot.e::after { left:17px; }
+@keyframes hello { from { translate:0 6px; } to { translate:0 0; } }
+.case { display:grid; grid-template-columns:1fr 1.22fr 1fr; gap:24px; padding-bottom:18px; }
+.case > *, .title > *, .investment > *, .validation > * { min-width:0; }
+h2 { font-size:12px; margin-bottom:8px; color:var(--accent); } .case p,.case li { font-size:12px; color:var(--muted); }
+.case strong { color:var(--ink); } ul { margin:0; padding-left:16px; display:grid; gap:6px; }
+.statement { font-size:15px !important; line-height:1.45; color:var(--ink) !important; margin-bottom:10px; }
+.impact { margin-top:12px; padding-top:10px; border-top:1px solid color-mix(in srgb,var(--ink) 16%,transparent); }
+.impact strong { display:block; font-size:11.5px; margin-bottom:3px; }
+.concept { background:var(--paper); border-radius:20px; padding:14px 16px; display:flex; flex-direction:column; gap:8px; }
+.concept-top { display:flex; justify-content:space-between; align-items:baseline; }
+.concept h2 { margin-bottom:0; }
+.concept-pill { font-size:8.5px; font-weight:700; text-transform:uppercase; letter-spacing:.8px; color:var(--muted); background:color-mix(in srgb,var(--ink) 8%,transparent); padding:2px 7px; border-radius:10px; }
+.caption { font-size:9.5px !important; color:var(--muted); line-height:1.35; }
+.message { max-width:100%; border-radius:14px; background:var(--surface); font-size:11px; }
+.message.ask { align-self:flex-end; background:var(--ink); color:var(--surface); border-radius:14px 14px 3px 14px; padding:8px 12px; font-size:10.5px; font-weight:500; }
+.message.reply { padding:11px 12px; border:1px solid color-mix(in srgb,var(--ink) 12%,transparent); display:flex; flex-direction:column; gap:6px; border-radius:14px 14px 14px 3px; box-shadow:0 2px 8px color-mix(in srgb,var(--ink) 4%,transparent); }
+.agent-header { display:flex; align-items:center; gap:6px; font-size:9.5px; }
+.agent-dot { width:15px; height:15px; border-radius:50%; background:var(--ink); color:var(--surface); display:grid; place-items:center; font-size:8px; font-weight:700; }
+.agent-header strong { font-size:10px; color:var(--ink); }
+.agent-header small { margin-left:auto; color:var(--muted); font-size:8.5px; }
+.reply-text { font-size:10.5px; color:var(--ink); line-height:1.4; margin:0; }
+.stats-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:5px; margin-top:1px; }
+.stat-box { padding:4px 6px; background:color-mix(in srgb,var(--paper) 70%,transparent); border-radius:6px; }
+.stat-box span { display:block; font-size:8px; color:var(--muted); text-transform:uppercase; letter-spacing:.3px; }
+.stat-box strong { font-size:10px; color:var(--ink); }
+.stat-box em { font-style:normal; font-size:8px; font-weight:700; color:#0d8a4e; margin-left:2px; }
+.csv-card { display:flex; align-items:center; gap:8px; padding:6px 8px; background:var(--surface); border:1px solid color-mix(in srgb,var(--ink) 18%,transparent); border-radius:8px; text-decoration:none; margin-top:2px; }
+.csv-badge { background:#107c41; color:#fff; font-size:8px; font-weight:800; padding:3px 5px; border-radius:4px; letter-spacing:.5px; flex-shrink:0; }
+.csv-info { flex:1; min-width:0; }
+.csv-name { font-size:9.5px; font-weight:700; color:var(--ink); display:block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.csv-meta { font-size:8px; color:var(--muted); display:block; }
+.csv-arrow { width:18px; height:18px; border-radius:50%; background:var(--ink); color:var(--surface); display:grid; place-items:center; font-size:9px; font-weight:700; flex-shrink:0; }
+.message small.source { display:block; font-size:8px; color:var(--muted); margin-top:2px; }
+.schedule { display:flex; gap:9px; align-items:center; padding-top:6px; border-top:1px dashed color-mix(in srgb,var(--ink) 20%,transparent); }
+.clock { display:grid; place-items:center; flex:0 0 38px; height:38px; border-radius:50%; border:1.5px solid var(--ink); font-size:10px; font-weight:800; }
+.schedule p { font-size:9px; line-height:1.35; color:var(--muted); }
+.schedule strong { color:var(--ink); }
+.pilot { margin-top:14px; padding:10px 12px; border:1px solid color-mix(in srgb,var(--ink) 18%,transparent); border-radius:14px; font-size:11px !important; color:var(--ink) !important; }
+.investment { background:var(--ink); color:var(--surface); display:grid; grid-template-columns:1fr 1.14fr; gap:30px; padding:20px 24px; border-radius:24px; }
+.investment h2 { color:var(--surface); font-size:10px; letter-spacing:1.3px; text-transform:uppercase; }
+.investment h3 { font:700 23px/1.2 var(--display); letter-spacing:-.5px; margin-bottom:9px; }
+.investment p { font-size:11px; color:color-mix(in srgb,var(--surface) 85%,transparent); }
+.investment ul { gap:4px; font-size:11px; }
+.pending { display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:12px; font-size:10px; color:var(--highlight); }
+.validation { display:grid; grid-template-columns:1.15fr 1fr; gap:30px; padding-block:16px 13px; }
+.validation h2 { font-size:11px; margin-bottom:5px; }
+.validation p { color:var(--muted); font-size:10px; }
+footer { display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; padding-top:10px; border-top:1px solid color-mix(in srgb,var(--ink) 15%,transparent); color:var(--muted); font-size:9px; }
+footer p { max-width:860px; }
+.message { animation:arrive 800ms ease-out; } .message.reply { animation-duration:1300ms; }
+@keyframes arrive { from { transform:translateY(7px); } to { transform:translateY(0); } }
+@media (max-width:900px) {
+  .sheet { padding:24px; } h1 { font-size:35px; } .case { gap:18px; } .investment { gap:22px; }
+}
+@media (max-width:650px) {
+  body { padding-block:16px; } .sheet { padding:20px 18px; }
+  .title,.case,.investment,.validation { grid-template-columns:1fr; gap:20px; }
+  h1 { font-size:35px; } .case { gap:24px; } .concept { max-width:100%; }
+  .title p,.case p,.case li { font-size:13px; } .investment { padding:20px; }
+  .investment p,.investment ul { font-size:12px; } .validation p { font-size:12px; }
+}
+@media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation:none !important; } }
+@page { size:A4 landscape; margin:9mm; }
+@media print {
+  body { padding:0; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+  .sheet { border:0; padding:0; max-width:none; zoom:.80; }
+  header { padding-bottom:8px; } .title { padding-block:12px; } h1 { font-size:32px; }
+  .case { padding-bottom:12px; gap:18px; } .investment { padding:14px 18px; }
+  .validation { padding-block:10px; } .sheet { break-inside:avoid; }
+}
+</style>
+</head>
+<body>
+<main class="sheet">
+  <header><div class="project">Henskristal / Asisten Laporan Pemilik</div><div class="label">Usulan pendanaan · Pilot terbatas</div></header>
+  <section class="title" aria-labelledby="title">
+    <h1 id="title">Laporan bisnis sesuai kebutuhan.<br><em>Cukup lewat chat.</em></h1>
+    <div class="title-summary"><div class="bots" aria-hidden="true"><span class="bot a"></span><span class="bot b"></span><span class="bot c"></span><span class="bot d"></span><span class="bot e"></span></div><p>Membangun asisten yang bisa dimintai laporan kapan saja dan mengirimkannya sesuai jadwal pemilik. Seperti meminta kepada staf, dengan target akses 24/7.</p></div>
+  </section>
+  <div class="case">
+    <section aria-labelledby="problem">
+      <h2 id="problem">Alasan berinvestasi</h2>
+      <p class="statement">Informasinya ada.<br>Waktu pemilik habis untuk mendapatkannya.</p>
+      <ul><li>Laporan tersebar di menu admin dan dokumen OneDrive.</li><li>Permintaan rutin bergantung pada staf dan jam kerja.</li><li>Pemilik harus mencari, meminta, lalu menunggu rekap.</li></ul>
+      <div class="impact"><strong>Hasil bisnis yang dituju</strong><p>Akses informasi lebih cepat, lebih sedikit permintaan rekap rutin, dan waktu lebih leluasa untuk mengambil keputusan.</p></div>
+    </section>
+    <section class="concept" aria-labelledby="solution">
+      <div class="concept-top">
+        <h2 id="solution">Pengalaman yang akan dibangun</h2>
+        <span class="concept-pill">Simulasi chat</span>
+      </div>
+      <p class="caption">Pemilik chat · Laporan ringkas &amp; berkas CSV terlampir otomatis</p>
+      <div class="message ask">Tolong kirim laporan penjualan kemarin.</div>
+      <div class="message reply">
+        <div class="agent-header">
+          <span class="agent-dot">✧</span>
+          <strong>Grokbot Henskristal</strong>
+          <small>08.01</small>
+        </div>
+        <p class="reply-text">Siap Pak/Bu, berikut ringkasan penjualan kemarin (Jumat, 6 Nov 2026):</p>
+        <div class="stats-grid">
+          <div class="stat-box"><span>Total Omzet</span><strong>Rp 48.250.000</strong><em>+12%</em></div>
+          <div class="stat-box"><span>Volume Kirim</span><strong>1.420 Bal</strong><em>3 armada</em></div>
+          <div class="stat-box"><span>Top Cabang</span><strong>Timur &amp; Sentral</strong></div>
+          <div class="stat-box"><span>Status Tagihan</span><strong>94% Terbayar</strong></div>
+        </div>
+        <div class="csv-card">
+          <div class="csv-badge">CSV</div>
+          <div class="csv-info">
+            <span class="csv-name">laporan_penjualan_2026-11-06.csv</span>
+            <span class="csv-meta">18.4 KB · 142 baris rincian toko &amp; armada</span>
+          </div>
+          <span class="csv-arrow" aria-hidden="true" title="Unduh CSV">↓</span>
+        </div>
+        <small class="source">Disertai periode &amp; sumber data admin · siap dibuka di Excel</small>
+      </div>
+      <div class="schedule">
+        <div class="clock" aria-hidden="true">08.00</div>
+        <p><strong>Bisa otomatis terjadwal:</strong> “Kirim ringkasan &amp; CSV tiap jam 8 pagi.” Laporan tiba sebelum Anda mulai beraktivitas.</p>
+      </div>
+    </section>
+    <section aria-labelledby="deliverables">
+      <h2 id="deliverables">Hasil pembangunan pilot</h2>
+      <ul><li><strong>Tiga laporan prioritas</strong>, misalnya penjualan harian, perbandingan mingguan, dan tagihan belum lunas.</li><li><strong>Satu jadwal pengiriman otomatis</strong> yang dapat diubah atau dihentikan.</li><li><strong>Akses melalui Grokbot</strong> ke data admin dan dokumen OneDrive terpilih, setelah kompatibilitas dipastikan.</li></ul>
+      <p class="pilot"><strong>Mulai terbatas.</strong> Gunakan sistem yang ada dan uji bersama pemilik sebelum memperluas cakupan.</p>
+    </section>
+  </div>
+  <section class="investment" aria-labelledby="ask">
+    <div><h2 id="ask">Persetujuan yang diminta</h2><h3>Danai pembangunan dan uji coba<br>asisten laporan pemilik.</h3><p>Persetujuan pendanaan pilot berdasarkan anggaran yang disepakati. Keputusan perluasan diambil setelah hasilnya dievaluasi.</p><div class="pending"><span>Anggaran: belum ditetapkan</span><span>Durasi: belum ditetapkan</span></div></div>
+    <div><h2>Penggunaan dana</h2><ul><li>Menghubungkan data dan laporan yang disetujui ke chat.</li><li>Membangun pengiriman laporan sesuai jadwal pemilik.</li><li>Menguji ketepatan laporan, hak akses, dan keandalan pengiriman.</li></ul><p style="margin-top:10px">Sebelum persetujuan akhir: lengkapi biaya pembangunan, biaya layanan rutin, durasi, dan penanggung jawab pilot.</p></div>
+  </section>
+  <section class="validation" aria-label="Evaluasi dan batasan pilot">
+    <div><h2>Dasar evaluasi investasi</h2><p>Laporan terbaca langsung di chat, angka sesuai sumber, dan pengiriman tepat sesuai jadwal yang disepakati. Bandingkan waktu mendapatkan laporan dengan cara saat ini; hasil pilot menentukan kelanjutan pendanaan.</p></div>
+    <div><h2>Risiko dibatasi sejak awal</h2><p>Hanya-baca, pengguna dan data dibatasi, tanpa perubahan transaksi. Ketentuan penggunaan data oleh penyedia chat disetujui sebelum koneksi data rahasia.</p></div>
+  </section>
+  <footer><p>Usulan pembangunan, bukan layanan yang sudah tersedia. Target akses 24/7 dan pengiriman otomatis perlu dibuktikan saat pilot. Kemutakhiran laporan mengikuti sumber data.</p><span>Proposal untuk pemilik Henskristal</span></footer>
+</main>
+</body>
+</html>
